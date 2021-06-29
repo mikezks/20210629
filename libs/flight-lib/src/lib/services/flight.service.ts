@@ -29,6 +29,7 @@ export class FlightService {
       );
   }
 
+  // Trainer was here! :)
   find(from: string, to: string, urgent: boolean = false): Observable<Flight[]> {
 
     // For offline access

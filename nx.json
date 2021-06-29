@@ -1,8 +1,4 @@
 {
-  "npmScope": "flight-workspace",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -14,21 +10,16 @@
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "flight-workspace",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
         "--cacheDirectory": "c:\\temp\\cache"
-      }
-    }
-  },
-  "--tasksRunnerOptions": {
-    "default": {
-      "runner": "./tools/task-runners/custom-task-runner",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "remoteDirectory": "c:\\temp\\remote-cache"
       }
     }
   },
@@ -85,6 +76,19 @@
     },
     "passenger-feature-edit": {
       "tags": ["domain:passenger", "type:feature"]
+    },
+    "luggage-domain": {
+      "tags": ["domain:luggage", "type:domain-logic"]
+    },
+    "luggage": {
+      "tags": ["domain:luggage", "type:app"]
+    },
+    "luggage-e2e": {
+      "tags": [],
+      "implicitDependencies": ["luggage"]
+    },
+    "luggage-feature-checkin": {
+      "tags": ["domain:luggage", "type:feature"]
     }
   }
 }
