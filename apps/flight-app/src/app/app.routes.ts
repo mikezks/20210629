@@ -22,6 +22,11 @@ export const APP_ROUTES: Routes = [
     loadChildren: () => FlightBookingModule
   }, */
   {
+    path: 'mf-passenger',
+    loadChildren: () => import('passenger/module')
+      .then(esm => esm.PassengerModule)
+  },
+  {
     path: 'basket',
     component: BasketComponent,
     outlet: 'aux'
