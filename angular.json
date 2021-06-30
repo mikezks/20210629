@@ -689,7 +689,6 @@
               "apps/flight-app/src/assets/css/themify-icons.css"
             ],
             "scripts": [],
-            "extraWebpackConfig": "apps/passenger/webpack.config.js",
             "commonChunk": false
           },
           "configurations": {
@@ -712,8 +711,7 @@
                   "with": "apps/passenger/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all",
-              "extraWebpackConfig": "apps/passenger/webpack.prod.config.js"
+              "outputHashing": "all"
             },
             "development": {
               "buildOptimizer": false,
@@ -730,8 +728,7 @@
           "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "passenger:build:production",
-              "extraWebpackConfig": "apps/passenger/webpack.prod.config.js"
+              "browserTarget": "passenger:build:production"
             },
             "development": {
               "browserTarget": "passenger:build:development"
@@ -739,7 +736,6 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "extraWebpackConfig": "apps/passenger/webpack.config.js",
             "port": 3000
           }
         },
