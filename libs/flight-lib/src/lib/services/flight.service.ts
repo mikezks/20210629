@@ -1,9 +1,14 @@
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
 import {Flight} from '../models/flight';
 
+interface LocalState {
+  count: number;
+  loading: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +18,14 @@ export class FlightService {
   flights: Flight[] = [];
   baseUrl = `http://www.angular.at/api`;
   // baseUrl = `http://localhost:3000`;
+
+  flightsCount$ = new BehaviorSubject<number>(0);
+  /* flightsLoading$ = new BehaviorSubject<boolean>(false);
+
+  flightsState$ = new BehaviorSubject<LocalState>({
+    count: 0,
+    loading: false
+  }); */
 
   reqDelay = 1000;
 
@@ -49,7 +62,9 @@ export class FlightService {
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
 
-    return this.http.get<Flight[]>(url, {params, headers});
+    return this.http.get<Flight[]>(url, {params, headers}).pipe(
+      tap(flights => this.flightsCount$.next(flights.length))
+    );
     // return of(flights).pipe(delay(this.reqDelay))
 
   }
