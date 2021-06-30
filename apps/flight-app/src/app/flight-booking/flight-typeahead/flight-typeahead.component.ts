@@ -4,7 +4,6 @@ import { FormControl } from '@angular/forms';
 import { Flight } from '@flight-workspace/flight-lib';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap, tap } from 'rxjs/operators';
-import { CityPipe } from '../../shared/pipes/city.pipe';
 
 @Component({
   selector: 'flight-workspace-flight-typeahead',
