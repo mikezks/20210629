@@ -28,8 +28,8 @@ export class FlightSearchComponent implements OnInit {
 
   ngOnInit() {
     this.flights$ = this.store.select(
-      // fromFlightBooking.selectFlights
-      fromFlightBooking.selectActiveUserFlights
+      fromFlightBooking.selectFlights
+      // fromFlightBooking.selectActiveUserFlights
     );
   }
 
